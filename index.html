@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<base target="_parent" />
+	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
+	<title>Open Innovations Dashboard v1.0.1</title>
+	<meta name="description" content="We keep a record of how we are doing on our public dashboard.">
+	<meta name="keywords" content="dashboard,stats,summary">
+	<script type="text/javascript" src="js/dashboard.js"></script>
+	<script>
+	var panels = {
+		"swans": {
+			"data": ["data/stats.csv"],
+			"start": "start",
+			"end": "start",
+			"els": {
+				".number": { "col": "swans", "op": "sum", "animate": true }
+			},
+			'class':'c12-bg'
+		},
+		"furries": {
+			"data": ["data/stats.csv"],
+			"start": "start",
+			"end": "start",
+			"els": {
+				".number": { "col": "litter", "op": "sum", "animate": true }
+			},
+			'class':'c5-bg'
+		},
+		"benefits": {
+			"data": ["data/stats.csv"],
+			"start": "start",
+			"end": "start",
+			"units": "&pound;",
+			"els": {
+				".number": { "col": "weekly_benefit", "op": "sum",  "animate": true }
+			},
+			'class':'c8-bg'
+		},
+		"immigration": {
+			"data": ["data/stats.csv"],
+			"start": "start",
+			"end": "start",
+			"els": {
+				".number": { "col": "pcWhite", "op": "sum", "animate": true }
+			},
+			'class':'c1-bg'
+		},
+		"answer": {
+			"data": ["data/stats.csv"],
+			"start": "start",
+			"end": "start",
+			"els": {
+				".number": { "col": "answer", "op": "sum", "animate": true }
+			},
+			'class':'c11-bg'
+		},
+		"biscuits": {
+			"data": ["data/stats.csv"],
+			"start": "start",
+			"end": "start",
+			"els": {
+				".number": { "col": "biscuits", "op": "sum", "animate": true }
+			},
+			'class':'c14-bg'
+		}
+	}
+	var db;
+	OI.ready(function(){
+		db = new OI.Dashboard();
+		db.setup({'year':'#range','config':panels});
+	});
+	console.log("panels:", panels.benefits);
+	</script>
+	<link rel="icon" href="https://open-innovations.org/resources/images/logos/oi-square-black.svg" />
+</head>
+<body class="b6-bg">
+
+	<a name="top"></a>
+	<div class="dashboard">
+		<div id="cover"></div>
+		<header class="b6-bg">
+			<h1><a href="https://open-innovations.org/"><img src="https://open-innovations.org/resources/images/logos/oi-square-black.svg" /></a> <select id="range" name="range"><option value="default">Dashboard</option><option value="lifetime">Lifetime impact</option><option value="2025">2025 impact</option><option value="2024">2024 impact</option><option value="2023">2023 impact</option><option value="2022">2022 impact</option><option value="2021">2021 impact</option><option value="2020">2020 impact</option><option value="2019">2019 impact</option><option value="2018">2018 impact</option><option value="2017">2017 impact</option><option value="2016">2016 impact</option><option value="2015">2015 impact</option><option value="2014">2014 impact</option></select></h1>
+		</header>
+		<ul class="panels">
+			<li id="swans" tabindex="0">
+				<div class="box c12-bg">
+					<div class="panel">
+						<div class="title">Number of swans eaten</div>
+						<div class="number less"></div>
+						<p class="more">
+							Royal Parks of London say there have 
+							been no reports of missing swans, or 
+							of swans being attacked.
+						</p>
+					</div>
+				</div>
+			</li><li id="benefits">
+				<div class="box c8-bg">
+					<div class="panel">
+						<div class="title">Weekly benefit paid to asylum seekers</div>
+						<div class="number less"></div>
+					</div>
+				</div>
+			</li><li id="furries">
+				<div class="box c5-bg">
+					<div class="panel">
+						<div class="title">Number of schools providing cat litter in place of toilets</div>
+						<div class="number less"></div>
+					</div>
+				</div>
+			</li><li id="immigration">
+				<div class="box c1-bg">
+					<div class="panel">
+						<div class="title">% White British in the 2021 Census</div>
+						<div class="number less"></div>
+					</div>
+				</div>
+			</li><li id="answer">
+				<div class="box c11-bg">
+					<div class="panel">
+						<div class="title">The answer to life, the universe, and everything</div>
+						<div class="number less"></div>
+						<p class="more">
+							42 is the ASCII code for the asterisk '*' symbol 
+							(or 'fluffy') used as a placeholder in coding. It 
+							can mean anything you want it to mean. <br>
+							Douglas Adams always swore he didn't know that when he 
+							wrote Hitchhiker's Guide To The Galaxy.
+						</p>
+					</div>
+				</div>
+			</li><li id="biscuits">
+				<div class="box c14-bg">
+					<div class="panel">
+						<div class="title">Number of Empire Biscuits eaten by ODCamp10 attendees</div>
+						<div class="number less"></div>
+						<p class="more">
+							Number of Empire Biscuits distributed 
+							on Olio after the event: 591
+						</p>
+					</div>
+				</div>
+			</li><!--<li>
+				<div class="box c7-bg">
+					<div class="panel" style="background: url('http://i2.wp.com/leeds.odinodes.wpengine.com/wp-content/uploads/sites/7/2015/07/Yorkshire-Water-Data-Dive-event-at-Munro-House-Leeds..-001.jpg?resize=420%2C240') center center;background: url('bg.jpg') center center;background-size: cover;">
+						<div class="image"></div>
+					</div>
+				</div>
+			</li>-->
+		</ul>
+	</div>
+	<script src="https://open-innovations.org/resources/oi.log.js"></script>
+	<script>
+	OI.log.setup({'id':'open-innovations','target':['open-innovations.org','open-innovations.github.io','odileeds.org']}).add('action=view');
+	</script>
+
+</body>
+</html>
